@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alumnos>
+    <alumno id="1">
+        <nombre>Juan</nombre>
+        <apellidos>Martí López</apellidos>
+        <edad>18</edad>
+    </alumno>
+    <alumno id="2">
+        <nombre>Amparo</nombre>
+        <apellidos>Luna Dolores</apellidos>
+        <edad>25</edad>
+    </alumno>
+    <alumno id="3">
+        <nombre>Marcos</nombre>
+        <apellidos>Durá Blasco</apellidos>
+        <edad>23</edad>
+    </alumno>
+    <alumno id="4">
+        <nombre>Marta</nombre>
+        <apellidos>Calabuig</apellidos>
+        <edad>24</edad>
+    </alumno>
+</alumnos>
