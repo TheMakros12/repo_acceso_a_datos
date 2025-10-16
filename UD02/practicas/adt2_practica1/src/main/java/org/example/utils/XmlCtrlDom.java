@@ -75,4 +75,3 @@ public class XmlCtrlDom {
         trans.transform(source, pantalla);
     }
 }
-
