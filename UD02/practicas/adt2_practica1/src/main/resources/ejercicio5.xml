@@ -10,4 +10,14 @@
         <apellidos>Luna Dolores</apellidos>
         <edad>25</edad>
     </alumno>
+    <alumno id="3">
+        <nombre>Marcos</nombre>
+        <apellidos>Durá Blasco</apellidos>
+        <edad>23</edad>
+    </alumno>
+    <alumno id="4">
+        <nombre>Marta</nombre>
+        <apellidos>Calabuig</apellidos>
+        <edad>24</edad>
+    </alumno>
 </alumnos>

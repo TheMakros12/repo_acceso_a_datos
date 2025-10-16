@@ -49,4 +49,13 @@ public class Alumno {
         this.edad = edad;
     }
 
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad='" + edad + '\'' +
+                '}';
+    }
 }

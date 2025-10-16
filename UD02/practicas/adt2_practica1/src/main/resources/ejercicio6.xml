@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alumnos>
+    <alumno id="1">
+        <nombre>Roberto</nombre>
+        <apellidos>Blasco</apellidos>
+        <nota>9</nota>
+        <curso>2nDAM</curso>
+    </alumno>
+    <alumno id="2">
+        <nombre>Vicente</nombre>
+        <apellidos>Martinez</apellidos>
+        <nota>9.5</nota>
+        <curso>2nASIR</curso>
+    </alumno>
+    <alumno id="3">
+        <nombre>Rosana</nombre>
+        <apellidos>Rosello</apellidos>
+        <nota>5</nota>
+        <curso>2nDAM</curso>
+    </alumno>
+</alumnos>
