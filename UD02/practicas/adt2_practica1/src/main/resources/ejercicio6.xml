@@ -3,19 +3,31 @@
     <alumno id="1">
         <nombre>Roberto</nombre>
         <apellidos>Blasco</apellidos>
-        <nota>9</nota>
+        <nota>4</nota>
         <curso>2nDAM</curso>
     </alumno>
     <alumno id="2">
         <nombre>Vicente</nombre>
         <apellidos>Martinez</apellidos>
         <nota>9.5</nota>
-        <curso>2nASIR</curso>
+        <curso>2nDAM</curso>
     </alumno>
     <alumno id="3">
         <nombre>Rosana</nombre>
         <apellidos>Rosello</apellidos>
         <nota>5</nota>
         <curso>2nDAM</curso>
+    </alumno>
+    <alumno id="4">
+        <nombre>Marcos</nombre>
+        <apellidos>Dura</apellidos>
+        <nota>8.2</nota>
+        <curso>2nASIR</curso>
+    </alumno>
+    <alumno id="5">
+        <nombre>Marta</nombre>
+        <apellidos>Calabuig</apellidos>
+        <nota>10</nota>
+        <curso>2nASIR</curso>
     </alumno>
 </alumnos>
