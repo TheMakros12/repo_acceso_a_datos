@@ -77,7 +77,7 @@ public class Alumno implements Comparable<Alumno> {
         } else if (this.getNota() < o.getNota()) {
             return -1;
         } else {
-            return 0;
+            return this.getNombre().compareTo(o.getNombre());
         }
     }
 }
