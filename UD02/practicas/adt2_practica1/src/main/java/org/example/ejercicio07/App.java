@@ -12,6 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +28,7 @@ public class App {
         ArrayList<Alumno> listaASIR = new ArrayList<>();
         Alumno alumnoLeido = null;
         String id, nombre, apellidos, curso;
-        int nota;
+        float nota;
 
         try {
             doc = xcd.instanciarDocument(file);
@@ -37,10 +38,10 @@ public class App {
                 Node alumno =  listaAlumnos.item(i);
                 if (alumno.getNodeType() == Node.ELEMENT_NODE) {
                     Element elementoAlumno = (Element) alumno;
-                    id =  elementoAlumno.getAttribute("id").toString();
+                    id = elementoAlumno.getAttribute("id");
                     nombre = elementoAlumno.getElementsByTagName("nombre").item(0).getTextContent();
                     apellidos = elementoAlumno.getElementsByTagName("apellidos").item(0).getTextContent();
-                    nota =  elementoAlumno.getElementsByTagName("nota").item(0).getTextContent().charAt(0);
+                    nota =  Float.parseFloat(elementoAlumno.getElementsByTagName("nota").item(0).getTextContent());
                     curso = elementoAlumno.getElementsByTagName("curso").item(0).getTextContent();
                     alumnoLeido = new Alumno(id, nombre, apellidos, nota, curso);
 
@@ -52,15 +53,15 @@ public class App {
                 }
             }
 
-            System.out.println("LISTA DE DAM");
-            for (Alumno alumno : listaDAM) {
-                System.out.println(alumno);
-            }
+            Collections.sort(listaDAM);
+            Collections.sort(listaASIR);
 
-            System.out.println("LISTA DE ASIR");
-            for (Alumno alumno : listaASIR) {
-                System.out.println(alumno);
-            }
+
+            System.out.println("LISTA DE DAM ORDENADOS POR NOTA:");
+            listaDAM.forEach(System.out::println);
+
+            System.out.println("LISTA DE ASIR ORDENADOS POR NOTA:");
+            listaASIR.forEach(System.out::println);
         } catch (ParserConfigurationException | IOException | SAXException ex) {
             Logger.getLogger(org.example.ejercicio05.App.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,13 +5,13 @@ public class Alumno implements Comparable<Alumno> {
     private String id;
     private String nombre;
     private String apellidos;
-    private int nota;
+    private float nota;
     private String curso;
 
     public Alumno() {
     }
 
-    public Alumno(String id, String nombre, String apellidos, int nota, String curso) {
+    public Alumno(String id, String nombre, String apellidos, float nota, String curso) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -43,11 +43,11 @@ public class Alumno implements Comparable<Alumno> {
         this.apellidos = apellidos;
     }
 
-    public int getNota() {
+    public float getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(float nota) {
         this.nota = nota;
     }
 
@@ -72,12 +72,6 @@ public class Alumno implements Comparable<Alumno> {
 
     @Override
     public int compareTo(Alumno o) {
-        if (this.getNota() > o.getNota()) {
-            return 1;
-        } else if (this.getNota() < o.getNota()) {
-            return -1;
-        } else {
-            return this.getNombre().compareTo(o.getNombre());
-        }
+        return Double.compare(o.nota, this.nota);
     }
 }
