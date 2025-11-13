@@ -120,7 +120,7 @@ public class App01 {
                         if (resultadoEmpleados != null) {
                             while (resultadoEmpleados.next()) {
                                 for (int i = 1; i < resultadoEmpleados.getMetaData().getColumnCount(); i++) {
-                                    System.out.println(resultadoEmpleados.getString(i) + "\t ");
+                                    System.out.print(resultadoEmpleados.getString(i) + "\t ");
                                 }
                                 System.out.println();
                             }
