@@ -18,6 +18,7 @@ public class JFEmpleados extends JFrame {
     public JTextField txtLastName;
     public JTextField txtYears;
     public JTextField txtSalary;
+    public JTable jtEmpleados;
 
     public JFEmpleados() {
         setContentPane(panelPrincipal);
