@@ -29,13 +29,13 @@ public class ControladorLogin implements ActionListener {
 
             User userLogin = modelo.login(username, password);
             if (userLogin != null) {
-                JOptionPane.showMessageDialog(null, "Usuario logueado correctamente.");
+                JOptionPane.showMessageDialog(null, "Usuario logueado correctamente.", "Login Correcto", JOptionPane.INFORMATION_MESSAGE);
                 JFListado vistaListado = new JFListado();
                 ControladorListado ctrlListado = new ControladorListado(vistaListado, modelo);
                 vistaListado.setLocationRelativeTo(null);
                 vistaListado.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "ERROR!!! Usuario incorrecto.");
+                JOptionPane.showMessageDialog(null, "ERROR!!! Usuario incorrecto.", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

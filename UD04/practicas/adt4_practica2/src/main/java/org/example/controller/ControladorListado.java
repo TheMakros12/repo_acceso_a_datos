@@ -3,7 +3,6 @@ package org.example.controller;
 import org.example.model.User;
 import org.example.model.UserDAO;
 import org.example.view.JFListado;
-import org.example.view.JFLogin;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -21,8 +20,8 @@ public class ControladorListado {
         llenarDatos(vista.jtUsuarios, vista.lUsuarios);
     }
 
-    public void llenarDatos(JTable tabla, JList<String> lista){
-        DefaultListModel<String> modeloList =  new DefaultListModel<>();
+    public void llenarDatos(JTable tabla, JList<User> lista){
+        DefaultListModel modeloList =  new DefaultListModel<>();
         lista.setModel(modeloList);
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -37,14 +36,13 @@ public class ControladorListado {
         List<User> listaUsers = modelo.getAll();
         int numRegistros = listaUsers.size();
 
-        for (int i = 0; i < numRegistros; i++) {
-            User u = new User();
-            columna[0] = u.getId();
-            columna[1] = u.getUsername();
-            columna[2] = u.getPassword();
+        for (User user : listaUsers) {
+            columna[0] = user.getId();
+            columna[1] = user.getUsername();
+            columna[2] = user.getPassword();
             modeloTabla.addRow(columna);
 
-            modeloList.addElement(u.toString());
+            modeloList.addElement(user.toString());
         }
 
         tabla.setEnabled(false);

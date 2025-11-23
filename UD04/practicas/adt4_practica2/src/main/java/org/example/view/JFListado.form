@@ -73,7 +73,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="32e12" class="javax.swing.JList" binding="lUsuarios">
+                  <component id="daf95" class="javax.swing.JList" binding="lUsuarios">
                     <constraints/>
                     <properties/>
                   </component>
