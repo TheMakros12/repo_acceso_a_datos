@@ -1,0 +1,28 @@
+1. Constructor de la interfaz:
+        setContentPane(pnPrincipal);
+        setTitle("Titulo");
+        pack();
+	// setsize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+2. Rellenar datos de una tabla:
+	DefaultTableModel modeloT = new DefaultTableModel();
+	tablaD.setModel(modeloT);
+	
+	modeloT.addColumn("...");
+	modeloT.addColumn("...");
+	
+	Object[] columna = new Object[...];
+	
+	int numRegistros = ...;
+	
+	for (int i = 0; i < numRegistros; i++) {
+		columna[0] = ...;
+		columna[1] = ...;
+		modeloT.addRow(columna);
+	}
+
+
+3. JOptionPanel:
+
+	JOptionPane.showMessageDialog(...);
