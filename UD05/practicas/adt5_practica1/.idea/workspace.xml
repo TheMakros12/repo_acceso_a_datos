@@ -4,39 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8770eccc-2a71-4e8b-ac6d-032bf162d56c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ControladorEmpleado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Empleado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/EmpleadoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/InterfaceDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/JFEmpleados.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/JFEmpleados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controlador/ControladorEmpleado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/main/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/modelo/Empleado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/modelo/EmpleadoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/modelo/HibernateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/modelo/InterfaceDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/vista/JFEmpleados.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/vista/JFEmpleados.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/src/main/java/org/example/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/src/main/java/org/example/AsistenciaMedica.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/src/main/java/org/example/HibernateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/src/main/java/org/example/Seguro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adt5_practica2/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="8770eccc-2a71-4e8b-ac6d-032bf162d56c" name="Changes" comment="hola" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +21,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "TheMakros12"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TheMakros12/repo_acceso_a_datos.git",
+    "accountId": "1d20fc46-4670-4eed-8cc8-8fd7e0d4e99b"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -109,10 +89,24 @@
       <workItem from="1766935919808" duration="1497000" />
       <workItem from="1766937429722" duration="2019000" />
       <workItem from="1766939764869" duration="356000" />
+      <workItem from="1766941284545" duration="25000" />
     </task>
+    <task id="LOCAL-00001" summary="hola">
+      <option name="closed" value="true" />
+      <created>1766941292566</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1766941292566</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hola" />
+    <option name="LAST_COMMIT_MESSAGE" value="hola" />
   </component>
 </project>
