@@ -50,7 +50,7 @@ public class App {
                 case "2":
                     System.out.println("\t2.- Ejercicio1 - Actualizar en la entidad Seguro.");
 
-                    Seguro seguro2 = new Seguro(2, "12345678A", "Lucia", "Calatayud", "Oliver", 20, 0, LocalDate.now());
+                    Seguro seguro2 = new Seguro(1, "12345678A", "Marta", "Lozano", "Bonastre", 24, 0, LocalDate.now());
 
                     Session session2 = HibernateUtil.getSession();
                     session2.beginTransaction();
@@ -136,7 +136,7 @@ public class App {
                     System.out.println("6.3. - Solo el NIF para el seguro con nombre 'Juan Chafer Bellver'.");
 
                     Query<String> query6_3 = session5.createQuery("SELECT s.nif FROM Seguro AS s " +
-                            "WHERE s.nombre = :nombre AND s.ape1 = :ape1 AND s.ape2 = :ape2", String.class);
+                            "WHERE s.nombre = :nombre AND s.apellido1 = :ape1 AND s.apellido2 = :ape2", String.class);
                     query6_3.setParameter("nombre", "Juan");
                     query6_3.setParameter("ape1", "Chafer");
                     query6_3.setParameter("ape2", "Bellver");
@@ -206,7 +206,7 @@ public class App {
                 case "7":
                     System.out.println("\t7. - Salir.");
                     salir = true;
-                    System.out.println("Has salido de la aplicación.x");
+                    System.out.println("Has salido de la aplicación.");
                     break;
                 default:
                     System.out.println("Opción incorrecta!!!");

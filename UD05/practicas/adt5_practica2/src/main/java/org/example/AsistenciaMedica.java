@@ -3,7 +3,7 @@ package org.example;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "asistenciamedica")
+@Table(name = "asistenciaMedica")
 public class AsistenciaMedica {
 
     @Id

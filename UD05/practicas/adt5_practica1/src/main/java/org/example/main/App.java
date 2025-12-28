@@ -1,8 +1,8 @@
 package org.example.main;
 
-import org.example.controlador.ControladorEmpleado;
-import org.example.modelo.EmpleadoDAO;
-import org.example.vista.JFEmpleados;
+import org.example.controller.ControladorEmpleado;
+import org.example.model.EmpleadoDAO;
+import org.example.view.JFEmpleados;
 
 public class App {
 
@@ -15,6 +15,7 @@ public class App {
 
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
+
 
     }
 
