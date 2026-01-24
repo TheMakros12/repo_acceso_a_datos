@@ -42,7 +42,7 @@ public class ProductoController {
     }
 
     @GetMapping("/buscar")
-    public List<Producto> listarPorCategoria(@RequestParam(value = "categotia") String categotia) {
+    public List<Producto> listarPorCategoria(@RequestParam(value = "categoria") String categotia) {
         return service.listarPorCategoria(categotia);
     }
 
