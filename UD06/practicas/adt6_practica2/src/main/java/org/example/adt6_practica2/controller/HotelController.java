@@ -45,7 +45,7 @@ public class HotelController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping
+    @GetMapping("/buscar")
     public ResponseEntity<List<Hotel>> buscar(@RequestParam(required = false) String localidad,
                                               @RequestParam(required = false) String categoria) {
         List<Hotel> lista = service.listarPorLocalidadYCategoria(localidad, categoria);

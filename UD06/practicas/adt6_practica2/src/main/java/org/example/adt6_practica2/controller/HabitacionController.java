@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.net.ssl.HttpsURLConnection;
-import java.io.Reader;
 import java.util.List;
 
 @RestController
@@ -29,9 +27,9 @@ public class HabitacionController {
     public ResponseEntity<Habitacion> registrar(@RequestBody Habitacion habitacion) {
         try {
             Habitacion obj = service.registrar(habitacion);
-            return new ResponseEntity<>(obj,HttpStatus.OK);
+            return new ResponseEntity<>(obj, HttpStatus.CREATED);
         } catch (Exception e){
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 

@@ -18,9 +18,6 @@ public interface IHabitacionRepository extends JpaRepository<Habitacion, Integer
     @Query("FROM Habitacion h WHERE h.holel.id =: idHotel AND h.ocupada = false")
     List<Habitacion> listarHabitacionesLibres(@Param("idHotel") Integer idHotel);
 
-    Integer id(Integer id);
-
-    Integer id(Integer id);
 }
 
 

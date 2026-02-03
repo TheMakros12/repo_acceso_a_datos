@@ -10,6 +10,9 @@ public class Hotel {
     private Integer id;
 
     @Column
+    private String nombre;
+
+    @Column
     private String descripcion;
 
     @Column
