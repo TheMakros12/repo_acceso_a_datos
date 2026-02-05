@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Usuario {
@@ -13,27 +14,24 @@ public class Usuario {
     private Integer id;
 
     @Column
-    @NotBlank
     private String nombre;
 
     @Column
-    @Size(min = 6, max = 50)
     private String apellidos;
 
     @Column
-    @Email
     private String email;
 
     @Column
     private String password;
 
-    @Column
-    private Date fechaCreacion;
+    @Column(name = "fecha_creacion")
+    private LocalDate fechaCreacion;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String apellidos, String email, String password, Date fechaCreacion) {
+    public Usuario(Integer id, String nombre, String apellidos, String email, String password, LocalDate fechaCreacion) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -82,11 +80,11 @@ public class Usuario {
         this.password = password;
     }
 
-    public Date getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
     
