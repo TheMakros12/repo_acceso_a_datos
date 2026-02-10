@@ -55,10 +55,10 @@ public class UsuarioServiceImpl implements IUsuarioService {
         if (op.isPresent()) {
 
             Usuario usuMod = op.get();
-            usuMod.setNombre(dtoRequest.getNombre());
-            usuMod.setApellidos(dtoRequest.getApellidos());
-            usuMod.setEmail(dtoRequest.getEmail());
-            usuMod.setPassword(dtoRequest.getPassword());
+            usuMod.setNombre(usuario.getNombre());
+            usuMod.setApellidos(usuario.getApellidos());
+            usuMod.setEmail(usuario.getEmail());
+            usuMod.setPassword(usuario.getPassword());
 
             return repo.save(usuMod);
         } else {
