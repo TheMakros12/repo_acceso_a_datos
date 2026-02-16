@@ -2,30 +2,30 @@ package org.example.adt6_practica4.model.dto;
 
 public class ResumenDTO {
 
-    private Integer confirmadas;
-    private Integer noConfirmadas;
+    private long confirmadas;
+    private long noConfirmadas;
 
     public ResumenDTO() {
     }
 
-    public ResumenDTO(Integer confirmadas, Integer noConfirmadas) {
+    public ResumenDTO(long confirmadas, long noConfirmadas) {
         this.confirmadas = confirmadas;
         this.noConfirmadas = noConfirmadas;
     }
 
-    public Integer getConfirmadas() {
+    public long getConfirmadas() {
         return confirmadas;
     }
 
-    public void setConfirmadas(Integer confirmadas) {
+    public void setConfirmadas(long confirmadas) {
         this.confirmadas = confirmadas;
     }
 
-    public Integer getNoConfirmadas() {
+    public long getNoConfirmadas() {
         return noConfirmadas;
     }
 
-    public void setNoConfirmadas(Integer noConfirmadas) {
+    public void setNoConfirmadas(long noConfirmadas) {
         this.noConfirmadas = noConfirmadas;
     }
 
