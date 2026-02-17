@@ -1,5 +1,6 @@
 package org.example.adt6_practica4.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
@@ -17,9 +18,11 @@ public class Reserva {
     private LocalDate fechaEntrada;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate fechaSalida;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Integer precioTotal;
 
     @Column

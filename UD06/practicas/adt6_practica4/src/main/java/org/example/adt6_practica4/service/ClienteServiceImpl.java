@@ -10,13 +10,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @Service
 public class ClienteServiceImpl implements IClienteService {
 
     @Autowired
     private IClienteRepository clienteRepository;
 
-    @Autowired
-    private IReservaRepository reservaRepository;
+    @Override
+    public Cliente findByEmail(String email) {
+        Optional<Cliente> cliente = clienteRepository.findByEmail(email);
+
+        return  cliente.isPresent()? cliente.get() : null;
+    }
 
 }

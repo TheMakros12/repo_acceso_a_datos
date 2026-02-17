@@ -1,11 +1,16 @@
 package org.example.adt6_practica4.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 public class ReservaResponseDTO {
 
     private String nombreCliente;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate fechaEntrada;
+
     private Integer precioTotal;
 
     public ReservaResponseDTO() {
