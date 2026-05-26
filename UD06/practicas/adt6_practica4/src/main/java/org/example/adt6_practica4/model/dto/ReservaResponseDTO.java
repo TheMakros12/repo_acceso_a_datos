@@ -8,7 +8,6 @@ public class ReservaResponseDTO {
 
     private String nombreCliente;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate fechaEntrada;
 
     private Integer precioTotal;

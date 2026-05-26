@@ -1,10 +1,7 @@
 package org.example.adt6_practica4.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,35 +9,33 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_cliente;
 
     @Column
     private String nombre;
 
     @Column
-    @Email
     private String email;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<Reserva> reservas = new ArrayList<>();
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Reserva> reservas;
 
     public Cliente() {
     }
 
-    public Cliente(Integer id, String nombre, String email, List<Reserva> reservas) {
-        this.id = id;
+    public Cliente(Integer id_cliente, String nombre, String email, List<Reserva> reservas) {
+        this.id_cliente = id_cliente;
         this.nombre = nombre;
         this.email = email;
         this.reservas = reservas;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_Cliente() {
+        return id_cliente;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_Clinte(Integer id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getNombre() {

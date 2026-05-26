@@ -1,42 +1,36 @@
 package org.example.adt6_practica4.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Reserva {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_reserva;
 
     @Column
     private LocalDate fechaEntrada;
 
     @Column
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate fechaSalida;
 
     @Column
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Integer precioTotal;
 
     @Column
     private boolean confirmada;
 
-    @ManyToOne
-    @JoinColumn(name = "id_cliente", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
     public Reserva() {
     }
 
-    public Reserva(Integer id, LocalDate fechaEntrada, LocalDate fechaSalida, Integer precioTotal, boolean confirmada, Cliente cliente) {
-        this.id = id;
+    public Reserva(Integer id_reserva, LocalDate fechaEntrada, LocalDate fechaSalida, Integer precioTotal, boolean confirmada, Cliente cliente) {
+        this.id_reserva = id_reserva;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.precioTotal = precioTotal;
@@ -45,11 +39,11 @@ public class Reserva {
     }
 
     public Integer getId() {
-        return id;
+        return id_reserva;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_reserva = id;
     }
 
     public LocalDate getFechaEntrada() {

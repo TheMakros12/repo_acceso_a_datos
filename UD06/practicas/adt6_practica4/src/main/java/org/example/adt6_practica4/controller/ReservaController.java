@@ -2,22 +2,16 @@ package org.example.adt6_practica4.controller;
 
 import jakarta.validation.Valid;
 import org.example.adt6_practica4.model.Reserva;
-import org.example.adt6_practica4.model.dto.FacturacionDTO;
 import org.example.adt6_practica4.model.dto.ReservaRequestDTO;
 import org.example.adt6_practica4.model.dto.ReservaResponseDTO;
 import org.example.adt6_practica4.model.dto.ResumenDTO;
-import org.example.adt6_practica4.service.ClienteServiceImpl;
 import org.example.adt6_practica4.service.IReservaService;
-import org.example.adt6_practica4.service.ReservaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Reader;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -25,94 +19,56 @@ import java.util.List;
 public class ReservaController {
 
     @Autowired
-    private IReservaService reservaService;
+    private IReservaService service;
 
     @PostMapping("/nuevaReserva")
-    public ResponseEntity<Reserva> crearReserva(@Valid @RequestBody ReservaRequestDTO dto) {
+    public ResponseEntity<ReservaRequestDTO> registrar(@Valid @RequestBody ReservaRequestDTO reservaRequestDto) {
         try {
-            Reserva reserva = reservaService.crearReserva(dto);
-            return new ResponseEntity<>(reserva, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            ReservaRequestDTO dto = service.registrar(reservaRequestDto);
+            return new ResponseEntity<>(dto, HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST );
         }
-    }
-
-    @DeleteMapping("/cliente/eliminarReservas/{email}")
-    public ResponseEntity<Void> eliminarReservas(@PathVariable("email") String email) {
-        reservaService.eliminarReservasPorEmail(email);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping("/facturacion")
-    public ResponseEntity<FacturacionDTO> obtenerFacturacion(@RequestParam("email") String email) {
-        Integer total = reservaService.obtenerFacturacionPorEmail(email);
-
-        if ( total == null ) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(new FacturacionDTO(total), HttpStatus.OK);
-        }
-    }
-
-    @GetMapping("/activas")
-    public ResponseEntity<List<ReservaResponseDTO>> listarReservasActivas(
-            @RequestParam("fecha")
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-            LocalDate fecha) {
-
-        List<ReservaResponseDTO> lista =
-                reservaService.listarReservasActivasDesde(fecha);
-
-        return new ResponseEntity<>(lista, HttpStatus.OK);
-    }
-
-    @GetMapping("/resumen")
-    public ResponseEntity<ResumenDTO> resumenReservas() {
-        ResumenDTO resumen = reservaService.contarReservasPorEstado();
-
-        return new ResponseEntity<>(resumen, HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/{email}")
-    public ResponseEntity<Void> eliminar(@PathVariable("email") String email) {
+    public ResponseEntity<Void> eliminarReservasPorEmail(@PathVariable("email") String email) {
         try {
-            reservaService.eliminar(email);
+            service.eliminarReservaPorEmail(email);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @GetMapping("/facturacion")
-    public ResponseEntity<Integer> facturacionTotal(@RequestParam("email") String email) {
+    @GetMapping("/obtenerFacturacion")
+    public ResponseEntity<Integer> obtenerFacturacion(@RequestParam("email") String email) {
         try {
-            int fac = reservaService.facturacionTotal(email);
-            if (fac == 0) {
+            int facturacion = service.obtenerFacturacion(email);
+
+            if ( facturacion == 0 )
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            } else {
-                return new ResponseEntity<>(HttpStatus.OK);
-            }
+
+            return new ResponseEntity<>(facturacion, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
 
-    @GetMapping("/reservasConfirmadas")
-    public ResponseEntity<List<ReservaResponseDTO>> reservasConfirmadas(@RequestParam(value = "fechaEntrada") String fechaEntrada) {
-        LocalDate fehca = LocalDate.parse(fechaEntrada, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        List<ReservaResponseDTO> lista = reservaService.listarReservasActivasDesde(fehca);
-
-        if (lista == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+    @GetMapping("/obtenerReservasConfirmadas")
+    public ResponseEntity<List<ReservaResponseDTO>> listarReservasConfirmadas(@RequestParam LocalDate fechaEntrada) {
+        List<ReservaResponseDTO> reservas = service.listarReservasConfirmadas(fechaEntrada);
+        return new ResponseEntity<>(reservas, HttpStatus.OK);
     }
 
-    @GetMapping("/resumse")
-    public ResponseEntity<ResumenDTO> resumen() {
-        return new ResponseEntity<>(reservaService.confirmadasNoConfirmadas(), HttpStatus.OK);
+    @GetMapping("/contarPorDisponibilidad")
+    public ResponseEntity<ResumenDTO> contarPorDisponibilidad() {
+        List<Reserva> DTOConfirmado = service.listarPorConfirmacion(true);
+        List<Reserva> DTONoConfirmado = service.listarPorConfirmacion(false);
+
+        ResumenDTO resumenDTO = new ResumenDTO(DTOConfirmado.size(), DTONoConfirmado.size());
+
+        return new ResponseEntity<>(resumenDTO, HttpStatus.OK);
     }
 
 }
