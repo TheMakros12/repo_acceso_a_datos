@@ -10,9 +10,9 @@ public interface ILibroService {
 
     LibroResponseDTO anyadirLibroAAutor(Integer idautor, LibroRequestDTO libroRequestDTO) throws Exception;
 
-    List<LibroRequestDTO> obtenerLibrosPorAutor(Integer idAutor) throws Exception;
+    List<LibroResponseDTO> obtenerLibrosPorAutor(Integer idAutor) throws Exception;
 
-    List<LibroRequestDTO> buscarLibrosPorGenero(GeneroLibro generoLibro) throws Exception;
+    List<LibroResponseDTO> buscarLibrosPorGenero(GeneroLibro generoLibro) throws Exception;
 
     List<LibroResponseDTO> buscarLibrosPorRangoDeAnyos(Integer desde, Integer hasta) throws Exception;
 

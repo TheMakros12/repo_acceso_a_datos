@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class PasajeroController {
         try {
             List<PasajeroResponseDTO> pasajeros = service.listarPasajerosCodigo(codigo);
             return new ResponseEntity<>(pasajeros, HttpStatus.OK);
+        } catch (ResponseStatusException e) {
+            throw e;
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -35,6 +38,8 @@ public class PasajeroController {
         try {
             Pasajero pasajero = service.agregarPasajero(pasajeroDTO);
             return new ResponseEntity<>(pasajero, HttpStatus.OK);
+        } catch (ResponseStatusException e) {
+            throw e;
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -45,6 +50,8 @@ public class PasajeroController {
         try {
             RecaudacionResponseDTO totalDTO = service.obtenerTotal(codigo);
             return new ResponseEntity<>(totalDTO, HttpStatus.OK);
+        } catch (ResponseStatusException e) {
+            throw e;
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

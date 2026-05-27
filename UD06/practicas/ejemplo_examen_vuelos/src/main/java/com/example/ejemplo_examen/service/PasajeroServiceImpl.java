@@ -28,15 +28,15 @@ public class PasajeroServiceImpl implements IPasajeroService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<PasajeroResponseDTO> listarPasajerosCodigo(String codifo) throws Exception {
+    public List<PasajeroResponseDTO> listarPasajerosCodigo(String codifo) {
         Vuelo vuelo = vueloService.findByCodigo(codifo);
         if (vuelo == null) {
-            throw new Exception("EL vuelo no existe");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El vuelo no existe");
         }
 
         List<Pasajero> listaPasajeros = repo.listarPasajerosCodigo(codifo);
         if (listaPasajeros.isEmpty()) {
-            throw new Exception("No válido");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No válido");
         }
 
         List<PasajeroResponseDTO> listaPasajerosDTO = listaPasajeros.stream()
@@ -47,7 +47,7 @@ public class PasajeroServiceImpl implements IPasajeroService {
     }
 
     @Override
-    public Pasajero agregarPasajero(PasajeroRequestDTO pasajeroRequestDTO) throws Exception {
+    public Pasajero agregarPasajero(PasajeroRequestDTO pasajeroRequestDTO) {
         Vuelo vuelo = vueloService.findByCodigo(pasajeroRequestDTO.getCodigoVuelo());
         if (vuelo == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -60,12 +60,12 @@ public class PasajeroServiceImpl implements IPasajeroService {
     }
 
     @Override
-    public RecaudacionResponseDTO obtenerTotal(String codigo) throws Exception {
+    public RecaudacionResponseDTO obtenerTotal(String codigo) {
         Vuelo vuelo = vueloService.findByCodigo(codigo);
 
         BigDecimal total = repo.obtenerTotal(codigo);
-        if (vuelo == null || total.signum() == 0) {
-            throw new Exception("No válido");
+        if (vuelo == null || total == null || total.signum() == 0) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No válido");
         }
 
         RecaudacionResponseDTO recaudacionDTO = new RecaudacionResponseDTO(codigo, vuelo.getFecha(), total);

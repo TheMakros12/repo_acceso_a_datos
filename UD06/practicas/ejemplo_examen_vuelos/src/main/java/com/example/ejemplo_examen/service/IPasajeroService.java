@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface IPasajeroService {
 
-    List<PasajeroResponseDTO> listarPasajerosCodigo(String codifo) throws Exception;
+    List<PasajeroResponseDTO> listarPasajerosCodigo(String codifo);
 
-    Pasajero agregarPasajero(PasajeroRequestDTO pasajeroRequestDTO) throws Exception;
+    Pasajero agregarPasajero(PasajeroRequestDTO pasajeroRequestDTO);
 
-    RecaudacionResponseDTO obtenerTotal(String codigo) throws Exception;
+    RecaudacionResponseDTO obtenerTotal(String codigo);
 
 }

@@ -12,11 +12,14 @@ import java.util.List;
 @Repository
 public interface ILibroRepository extends JpaRepository<Libro, Integer> {
 
-    List<Libro> findByIdAutor(Integer idAutor);
+    // CORRECCIÓN: el campo de la entidad es 'autor' (tipo Autor), no 'idAutor'.
+    // Spring Data no puede derivar findByIdAutor → usamos @Query explícita.
+    @Query("SELECT l FROM Libro l WHERE l.autor.idAutor = :idAutor")
+    List<Libro> findByIdAutor(@Param("idAutor") Integer idAutor);
 
     List<Libro> findByGenero(GeneroLibro genero);
 
-    @Query("FROM Libro l WHERE l.anyoPublicacion BETWEEN :desde AND :hasta ORDER BY l.titulo ASC")
+    @Query("SELECT l FROM Libro l WHERE l.anyoPublicacion BETWEEN :desde AND :hasta ORDER BY l.titulo ASC")
     List<Libro> findLibrosByRangoDeAnyos(@Param("desde") Integer desde, @Param("hasta") Integer hasta);
 
 }

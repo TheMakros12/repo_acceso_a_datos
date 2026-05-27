@@ -6,6 +6,6 @@ public interface IVueloService {
 
     Vuelo findByCodigo(String codigo);
 
-    String actualizarEstado(String codigo) throws Exception;
+    String actualizarEstado(String codigo);
 
 }

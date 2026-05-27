@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/vuelos")
@@ -17,10 +18,12 @@ public class VueloController {
     private IVueloService service;
 
     @PutMapping("/actualizarVuelo/{codigo}")
-    public ResponseEntity<String> actualizarEstado(@PathVariable String codigo) throws Exception {
+    public ResponseEntity<String> actualizarEstado(@PathVariable String codigo) {
         try {
             String estado = service.actualizarEstado(codigo);
             return new ResponseEntity<>(estado, HttpStatus.OK);
+        } catch (ResponseStatusException e) {
+            throw e;
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

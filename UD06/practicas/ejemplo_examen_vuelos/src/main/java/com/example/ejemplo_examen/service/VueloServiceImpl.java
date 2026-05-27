@@ -20,7 +20,7 @@ public class VueloServiceImpl implements IVueloService {
     }
 
     @Override
-    public String actualizarEstado(String codigo) throws Exception {
+    public String actualizarEstado(String codigo) {
         Vuelo vuelo = repo.findByCodigo(codigo);
         if (vuelo == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
