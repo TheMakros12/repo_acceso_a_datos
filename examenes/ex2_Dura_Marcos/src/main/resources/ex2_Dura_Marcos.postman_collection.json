@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "ce98726b-f409-4224-acd2-a4265518b5ad",
+    "name": "ex2_Dura_Marcos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "27218657"
+  },
+  "item": [
+    {
+      "name": "Ejercicio1",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"nombre\": \"Monitor 24 pulgadas\",\r\n        \"cantidad\": 3,\r\n        \"precioUnitario\": 199,\r\n        \"codigoPedido\": \"PED-2025002\"\r\n    }"
+        },
+        "url": {
+          "raw": "http://localhost:8080/pedidos/actualizar/PED-2025002",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pedidos",
+            "actualizar",
+            "PED-2025002"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ejercicio2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/pedidos/facturacion?codigo=PED-2025003",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pedidos",
+            "facturacion"
+          ],
+          "query": [
+            {
+              "key": "codigo",
+              "value": "PED-2025003",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ejercicio3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Prueba\",\r\n    \"cantidad\": 3,\r\n    \"precioUnitario\": 199,\r\n    \"codigoPedido\": \"PED-2025001\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/productos/nuevoProducto",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "productos",
+            "nuevoProducto"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ejercicio4",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
